@@ -1,0 +1,442 @@
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: white;
+}
+
+html {
+  font-size: 16px;
+}
+
+.mainHeader {
+  background: linear-gradient(to right, #ff8f70, #ff525d 50%);
+  padding: 3rem 1rem;
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  justify-items: center;
+  align-content: space-between;
+  border-bottom-left-radius: 125px;
+  z-index: 2;
+}
+
+.underlay {
+  position: absolute;
+  z-index: -1;
+  width: 200%;
+  height: 120%;
+  top: -20%;
+  left: -25%;
+}
+.underlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mainNav {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0px auto;
+}
+
+.closes,
+.burger,
+.small,
+.small2 {
+  display: none;
+}
+
+.closes, .burger {
+  cursor: pointer;
+}
+
+nav {
+  margin-left: 4rem;
+  flex: 1;
+}
+nav .main-ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .main-ul > li {
+  padding-right: 1.5rem;
+}
+nav .main-ul > li:nth-of-type(4) {
+  margin-left: auto;
+}
+nav a {
+  color: white;
+  position: relative;
+  font-family: "Ubuntu", sans-serif;
+  opacity: 0.7;
+  font-weight: 700;
+}
+nav a:not(.diff)::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 18px);
+  height: 3px;
+  background-color: white;
+  transition: 0.3s ease;
+  transform-origin: left;
+  transform: scaleX(0);
+  bottom: 0px;
+  left: 0px;
+}
+nav a:hover svg, nav a.active svg {
+  transform: rotate(180deg);
+}
+nav a:hover::after, nav a.active::after {
+  transform: scaleX(1);
+}
+nav a:hover, nav a.active {
+  opacity: 1;
+}
+
+hr {
+  display: none;
+}
+
+li {
+  position: relative;
+}
+li .sub-ul {
+  display: none;
+  position: absolute;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  left: -20px;
+  min-width: 120px;
+  background-color: white;
+}
+li .sub-ul li {
+  padding: 0.2rem 0rem;
+}
+li .sub-ul a {
+  color: black;
+}
+li .sub-ul a::after {
+  display: none;
+}
+li .sub-ul.active {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+nav button,
+.buttons button {
+  outline: none;
+  border-radius: 25px;
+  color: #ff525d;
+  border: 2px solid transparent;
+  padding: 1em 2.5em;
+  font-size: 1rem;
+  cursor: pointer;
+}
+nav button:hover,
+.buttons button:hover {
+  background-color: #ff525d;
+  color: white;
+}
+
+header {
+  min-height: 40vh;
+  text-align: center;
+}
+header h1,
+header h2 {
+  font-family: "Overpass", sans-serif;
+  font-weight: 600;
+}
+header h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+header h2 {
+  opacity: 0.7;
+  font-size: clamp(1rem, 5vw, 1.5rem);
+  margin-top: 1rem;
+  margin-bottom: 4rem;
+}
+
+.buttons button:last-child {
+  margin-left: 1rem;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+.buttons button:last-child:hover {
+  background-color: white;
+  color: #ff525d;
+}
+
+.firstSec, .thirdSec {
+  margin: 10rem 0rem 20rem 0rem;
+  padding: 0rem 1rem;
+  position: relative;
+}
+.firstSec h2,
+.firstSec h3,
+.firstSec p, .thirdSec h2,
+.thirdSec h3,
+.thirdSec p {
+  color: #25252d;
+}
+.firstSec h2, .thirdSec h2 {
+  text-align: center;
+  font-size: clamp(1rem,8vw,3rem);
+  font-family: "Overpass", sans-serif;
+}
+.firstSec h3, .thirdSec h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: "Ubuntu", sans-serif;
+}
+.firstSec .big, .firstSec .big2, .thirdSec .big, .thirdSec .big2 {
+  position: absolute;
+}
+.firstSec .big2, .thirdSec .big2 {
+  width: 50%;
+  height: 160%;
+  left: -15%;
+  top: -35%;
+}
+.firstSec .big, .thirdSec .big {
+  width: 50%;
+  height: 150%;
+  right: -15%;
+  top: -15%;
+}
+
+.thirdSec {
+  margin: 20rem 0rem;
+}
+
+.wrapper, .wrapper2 {
+  position: relative;
+  width: 95%;
+  margin-left: auto;
+}
+.wrapper .words, .wrapper2 .words {
+  width: 500px;
+  max-width: 100%;
+  margin-top: 5rem;
+}
+.wrapper .words .sub-words:first-child, .wrapper2 .words .sub-words:first-child {
+  margin-bottom: 5rem;
+}
+
+.wrapper2 {
+  width: 40%;
+}
+
+.stateOfArt {
+  background-color: #2d2f48;
+  border-radius: 0px 125px 0px 125px;
+  background-image: url(images/bg-pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-size: 1200px;
+  background-position-y: -650px;
+  background-position-x: -300px;
+  min-height: 400px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.stateOfArt .art {
+  width: 600px;
+  max-width: 100%;
+}
+.stateOfArt .art h2 {
+  font-size: 2.5rem;
+  font-family: "Overpass", sans-serif;
+  margin-bottom: 2rem;
+}
+.stateOfArt .art p {
+  font-size: 1.2rem;
+  line-height: 35px;
+}
+.stateOfArt .overlay img {
+  width: 100%;
+  margin-top: -70px;
+  margin-bottom: -90px;
+}
+
+footer {
+  background-color: #25252d;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-top-right-radius: 125px;
+  padding: 5rem 0rem;
+}
+footer h3 {
+  margin-bottom: 1rem;
+}
+footer h4 {
+  margin: 0.5rem 0rem;
+}
+footer svg {
+  align-self: flex-start;
+}
+
+@media (max-width: 1024px) {
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .small, .small2 {
+    display: block;
+    width: 130%;
+  }
+
+  .big, .big2 {
+    display: none;
+  }
+
+  .wrapper, .wrapper2 {
+    width: 100%;
+  }
+  .wrapper .words, .wrapper2 .words {
+    width: 100%;
+  }
+
+  .thirdSec {
+    margin: 10rem 0rem;
+  }
+}
+@media (max-width: 769px) {
+  .mainNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    position: absolute;
+    background-color: white;
+    margin: 0px;
+    transition: 0.5s ease;
+    top: -20%;
+    left: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+  }
+  nav .main-ul {
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem;
+    min-width: 250px;
+  }
+  nav .main-ul > li, nav .main-ul > li:nth-of-type(4),
+nav .main-ul hr,
+nav .main-ul button {
+    padding: 0px;
+    margin: 0.5rem 0rem;
+  }
+  nav .main-ul button {
+    padding: 0.8em 2em;
+    background: linear-gradient(to right, #ff8f70, #ff525d 50%);
+    color: white;
+    border: none;
+  }
+  nav a {
+    color: #25252d;
+    opacity: 1;
+  }
+  nav a:not(.diff)::after {
+    background-color: #25252d;
+  }
+  nav a:hover, nav a.active {
+    opacity: 0.7;
+  }
+  nav a .color {
+    stroke: #ff525d;
+  }
+  nav li {
+    width: 100%;
+  }
+  nav li .sub-ul {
+    position: static;
+    background-color: rgba(200, 200, 203, 0.5);
+    width: 100%;
+    padding: 1rem 0px;
+    width: 100%;
+  }
+
+  hr {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .buttons button {
+    padding: 3.5% 5%;
+  }
+
+  .stateOfArt {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    padding: 0rem 1rem;
+    align-items: center;
+    min-height: 700px;
+    background-size: 500px;
+    background-position-y: -150px;
+    background-position-x: 50%;
+  }
+  .stateOfArt .art {
+    width: 100%;
+    max-width: 100%;
+  }
+  .stateOfArt .overlay img {
+    width: 100%;
+    margin-bottom: 0px;
+    margin-top: -200px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+  }
+  footer svg {
+    align-self: center;
+  }
+  footer div {
+    margin: 2rem 0rem;
+  }
+}
+@media (min-width: 769px) {
+  .closes,
+.burger {
+    display: none !important;
+    cursor: pointer;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

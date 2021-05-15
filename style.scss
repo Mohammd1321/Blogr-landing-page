@@ -1,0 +1,425 @@
+@use 'sass-files/modules' as *;
+@use 'sass-files/varibals' as *;
+
+*,
+*::after,
+*::before {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: white;
+}
+
+html {
+  font-size: 16px;
+}
+
+.mainHeader {
+  background: linear-gradient(to right, $orange, $light-red 50%);
+  padding: sizes(bigger) sizes(normal);
+  min-height: 70vh;
+  position: relative;
+  overflow: hidden;
+  @include grid(center, space-between);
+  border-bottom-left-radius: 125px;
+  z-index: 2;
+}
+
+.underlay {
+  position: absolute;
+  z-index: -1;
+  width: 200%;
+  height: 120%;
+  top: -20%;
+  left: -25%;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.mainNav {
+  width: 100%;
+  max-width: 1000px;
+  @include flexbox(flex-start, center);
+  margin: 0px auto;
+}
+
+.closes,
+.burger,
+.small,
+.small2 {
+  display: none;
+}
+
+.closes,.burger {
+  cursor: pointer;
+}
+
+
+
+nav {
+  margin-left: sizes(huge);
+  flex: 1;
+  .main-ul {
+    @include flexbox(space-between, center);
+    & > li {
+      padding-right: sizes(big);
+    }
+    & > li:nth-of-type(4) {
+      margin-left: auto;
+    }
+  }
+  a {
+    color: white;
+    position: relative;
+    font-family: $ubuntu;
+    opacity: $opacity;
+    font-weight: 700;
+    &:not(.diff)::after {
+      content: "";
+      position: absolute;
+      width: calc(100% - 18px);
+      height: 3px;
+      background-color: white;
+      transition: 0.3s ease;
+      transform-origin: left;
+      transform: scaleX(0);
+      bottom: 0px;
+      left: 0px;
+    }
+    &:hover svg,
+    &.active svg {
+      transform: rotate(180deg);
+    }
+    &:hover::after,
+    &.active::after {
+      transform: scaleX(1);
+    }
+    &:hover,
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+hr {
+  display: none;
+}
+
+li {
+  position: relative;
+  .sub-ul {
+    display: none;
+    position: absolute;
+    margin-top: sizes(normal);
+    padding: sizes(normal);
+    border-radius: 5px;
+    left: -20px;
+    min-width: 120px;
+    background-color: white;
+    li {
+      padding: 0.2rem 0rem;
+    }
+    a {
+      color: black;
+      &::after {
+        display: none;
+      }
+    }
+    &.active {
+      @include flexbox(center, flex-start, true);
+    }
+  }
+}
+
+nav button,
+.buttons button {
+  outline: none;
+  border-radius: 25px;
+  color: $light-red;
+  border: 2px solid transparent;
+  padding: 1em 2.5em;
+  font-size: sizes(normal);
+  cursor: pointer;
+  &:hover {
+    background-color: $light-red;
+    color: white;
+  }
+}
+header {
+  min-height: 40vh;
+  text-align: center;
+  h1,
+  h2 {
+    font-family: $overpass;
+    font-weight: 600;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 4rem);
+  }
+  h2 {
+    opacity: $opacity;
+    font-size: clamp(1rem, 5vw, 1.5rem);
+    margin: {
+      top: sizes(normal);
+      bottom: sizes(huge);
+    }
+  }
+}
+.buttons {
+  button:last-child {
+    margin-left: sizes(normal);
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    &:hover {
+      background-color: white;
+      color: $light-red;
+    }
+  }
+}
+
+.firstSec,.thirdSec {
+  margin: 10rem 0rem 20rem 0rem;
+  padding: 0rem sizes(normal);
+  position: relative;
+  h2,
+  h3,
+  p {
+    color: $very-dark-blue;
+  }
+  h2 {
+    text-align: center;
+    font-size: clamp(1rem,8vw,3rem);
+    font-family: $overpass;
+  }
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-family: $ubuntu;
+  }
+  .big,.big2 {
+    position: absolute;
+  }
+
+  .big2 {
+    width: 50%;
+    height: 160%;
+    left: -15%;
+    top: -35%;
+  }
+  .big {
+    width: 50%;
+    height: 150%;
+    right: -15%;
+    top: -15%;
+  }
+}
+.thirdSec {
+  margin: 20rem 0rem;
+}
+
+.wrapper,.wrapper2 {
+  position: relative;
+  width: 95%;
+  margin-left: auto;
+  .words {
+    @include min(500px, 100%);
+    margin-top: 5rem;
+    .sub-words:first-child {
+      margin-bottom: 5rem;
+    }
+  }
+}
+.wrapper2 {
+  width: 40%;
+}
+
+
+.stateOfArt {
+  background-color: hsl(236, 23%, 23%);
+  border-radius: 0px 125px 0px 125px;
+  background-image: url(images/bg-pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-size: 1200px;
+  background-position-y: -650px;
+  background-position-x: -300px;
+  min-height: 400px;
+  @include flexbox(space-around,center);
+  .art {
+    @include min(600px,100%);
+    h2 {
+      font-size: 2.5rem;
+      font-family: $overpass;
+      margin-bottom: 2rem;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 35px;
+    }
+  }
+  .overlay {
+    img {
+      width: 100%;
+      margin-top: -70px;
+      margin-bottom: -90px;
+    }
+  }
+}
+
+footer {
+  background-color: $very-dark-blue;
+  @include flexbox(space-evenly,center);
+  border-top-right-radius: 125px;
+  padding: 5rem 0rem;
+  h3 {
+    margin-bottom: 1rem;
+  }
+  h4 {
+    margin: .5rem 0rem;
+  }
+  svg {
+    align-self: flex-start;
+  }
+}
+
+
+
+@media (max-width: 1024px) {
+  section {
+    @include flexbox(center,center,true);
+    text-align: center;
+  }
+  .small,.small2 {
+    display: block;
+    width: 130%;
+  }
+  .big,.big2 {
+    display: none;
+  }
+  .wrapper,.wrapper2 {
+    width: 100%;
+    .words {
+      width: 100%;
+    }
+  }
+  .thirdSec {
+    margin: 10rem 0rem;
+  }
+}
+
+
+
+@media (max-width: 769px) {
+  .mainNav {
+    @include flexbox(space-between, center);
+  }
+  nav {
+    position: absolute;
+    background-color: white;
+    margin: 0px;
+    transition: 0.5s ease;
+    top: -20%;
+    left: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    .main-ul {
+      flex-direction: column;
+      text-align: center;
+      padding: 1rem;
+      min-width: 250px;
+      & > li,
+      & > li:nth-of-type(4),
+      hr,
+      button {
+        padding: 0px;
+        margin: 0.5rem 0rem;
+      }
+      button {
+        padding: 0.8em 2em;
+        background: linear-gradient(to right, $orange, $light-red 50%);
+        color: white;
+        border: none;
+      }
+    }
+    a {
+      color: $very-dark-blue;
+      opacity: 1;
+      &:not(.diff)::after {
+        background-color: $very-dark-blue;
+      }
+      &:hover,
+      &.active {
+        opacity: $opacity;
+      }
+      & .color {
+        stroke: $light-red;
+      }
+    }
+    li {
+      width: 100%;
+      .sub-ul {
+        position: static;
+        background-color: hsl(240, 2%, 79%, 0.5);
+        width: 100%;
+        padding: sizes(normal) 0px;
+        width: 100%;
+      }
+    }
+  }
+  hr {
+    display: block;
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .burger {
+    display: block;
+  }
+  .buttons button {
+    padding: 3.5% 5%;
+  }
+  .stateOfArt {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    padding: 0rem 1rem;
+    align-items: center;
+    min-height: 700px;
+    background-size: 500px;
+  background-position-y: -150px;
+  background-position-x: 50%;
+    .art {
+      @include min(100%,100%);
+    }
+    .overlay {
+      img {
+        width: 100%;
+        margin-bottom: 0px;
+        margin-top: -200px;
+      }
+    }
+  }
+  footer {
+    @include flexbox(center,center,true);
+    text-align: center;
+    svg {
+      align-self: center;
+    }
+    div {
+      margin: 2rem 0rem;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .closes,
+  .burger {
+    display: none !important;
+    cursor: pointer;
+  }
+}

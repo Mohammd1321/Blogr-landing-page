@@ -1,0 +1,35 @@
+@use 'varibals' as *;
+
+@mixin grid($firstDir,$secondDir) {
+  display: grid;
+  justify-items: $firstDir;
+  align-content: $secondDir;
+}
+
+
+@mixin flexbox($firstDir,$secondDir,$flex-direction: false) {
+  display: flex;
+  justify-content: $firstDir; 
+  align-items: $secondDir;
+  @if $flex-direction {
+    flex-direction: column;
+  }
+}
+
+@mixin min($width,$maxWidth) {
+  width: $width;
+  max-width: $maxWidth;
+}
+
+
+@function sizes($much) {
+  @return map-get($size,$much);
+}
+
+
+$size: (
+  'normal': 1rem,
+  'big': 1.5rem,
+  'bigger': 3rem,
+  'huge': 4rem,
+);
