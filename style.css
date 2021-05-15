@@ -305,7 +305,7 @@ footer svg {
 
   .small, .small2 {
     display: block;
-    width: 130%;
+    width: 100%;
   }
 
   .big, .big2 {
@@ -335,7 +335,7 @@ footer svg {
     background-color: white;
     margin: 0px;
     transition: 0.5s ease;
-    top: -20%;
+    top: -70%;
     left: 50%;
     z-index: 1000;
     transform: translate(-50%, -50%);
