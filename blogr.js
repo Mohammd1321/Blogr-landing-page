@@ -35,7 +35,7 @@ burger.addEventListener('click',function() {
 })
 closes.addEventListener('click',function() {
  display('block','none');
- nav.style.top = '-20%';
+ nav.style.top = '-70%';
 })
 
 
